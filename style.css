@@ -59,6 +59,9 @@ div#score {
         width: 20vmin;
         font-size: 10vmin;
         text-align: center;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
 }
 
 
