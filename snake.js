@@ -2,7 +2,7 @@
 
 const	PANE_HEIGHT = 20,
 		PANE_WIDTH = 30,
-		SNAKE_SPEED = 120,
+		SNAKE_SPEED = 220,
 		DIRECTIONS = {
 			UP: 0,
 			RIGHT: 1,
@@ -14,14 +14,9 @@ const	PANE_HEIGHT = 20,
 			38: DIRECTIONS.UP,
 			39: DIRECTIONS.RIGHT,
 			40: DIRECTIONS.DOWN
-		},
-		OUT = {
-			1: 20,
-
 		}
 
 var scoreHTML = document.getElementById("score");
-
 
 class Snake {
 	constructor(initX, initY) {
@@ -118,18 +113,10 @@ class Snake {
 			this.position.y = PANE_HEIGHT - 1;
 		}
 
-		// //CHECK IF LEFT PANE
-		// if(this.position.x >= PANE_WIDTH || this.position.x < 0 || this.position.y >= PANE_HEIGHT || this.position.y < 0) {
-			
-		// 	//END GAME - snake left gamepane
-		// 	alert("Snake left the pane. You lost.");
-		// 	return;
-		// }
-
 		//CHECK IF SNAKE ATE HIMSELF
 		if(this.gamePane[this.position.x][this.position.y] > -1) {
 			//END GAME - snake ate himself
-			alert("Snake ate himself.\nYou lost\nYour score: " + this.size * 100);
+			alert("Snake ate himself.\nYou lost\nYour score: " + (this.size - 1) * 100);
 			resetGame();
 			return;
 		}
@@ -139,7 +126,7 @@ class Snake {
 			this.size += 1;
 			removeClass("food", this.tableCells[this.position.x][this.position.y]);
 			addClass("eaten", this.tableCells[this.position.x][this.position.y]);
-			scoreHTML.innerHTML = this.size * 100;
+			scoreHTML.innerHTML = (this.size - 1) * 100;
 			if(this.size % 10 == 0 && SNAKE_SPEED - this.speedAccelerate > 20) {
 				this.speedAccelerate -= 10;
 			}
@@ -216,21 +203,18 @@ class Snake {
 		
 	}
 
-}
+	resetGame() {
+		this.endGame();
+		s = new Snake(4, 4);
+	}
 
-var snakeGame = new Snake(4, 4);
-document.onkeydown = handleClick;
-
-function resetGame() {
-	snakeGame.endGame();
-	snakeGame = new Snake(4, 4);
 }
 
 function handleClick(e) {
 	e = e || window.event;
 
 	if([37, 38, 39, 40].indexOf(e.keyCode) > -1) {
-			snakeGame.changeDirection(KEYS[e.keyCode]);
+			s.changeDirection(KEYS[e.keyCode]);
 	}
 	if(e.keyCode == 82) {
 		resetGame();
@@ -256,3 +240,8 @@ function removeClass(classname, element ) {
     cn = cn.replace( rxp, '' );
     element.className = cn;
 }
+
+
+
+var s = new Snake(4, 4);
+document.onkeydown = handleClick;
