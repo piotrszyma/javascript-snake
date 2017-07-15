@@ -231,6 +231,9 @@ function handleClick(e) {
 	if([37, 38, 39, 40].indexOf(e.keyCode) > -1) {
 			snakeGame.changeDirection(KEYS[e.keyCode]);
 	}
+	if(e.keyCode == 82) {
+		resetGame();
+	}
 }
 
 function addClass(classname, element) {
