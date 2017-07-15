@@ -129,7 +129,7 @@ class Snake {
 		//CHECK IF SNAKE ATE HIMSELF
 		if(this.gamePane[this.position.x][this.position.y] > -1) {
 			//END GAME - snake ate himself
-			alert("Snake ate himself. You lost");
+			alert("Snake ate himself.\nYou lost\nYour score: " + this.size * 100);
 			resetGame();
 			return;
 		}
