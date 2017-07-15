@@ -104,7 +104,7 @@ class Snake {
 			default:
 				console.log("Unknown turn");
 		}
-		
+
 
 		//TODO: implement border and check it here
 
@@ -139,7 +139,9 @@ class Snake {
 			removeClass("food", this.tableCells[this.position.x][this.position.y]);
 			addClass("eaten", this.tableCells[this.position.x][this.position.y]);
 			scoreHTML.innerHTML = this.size * 100;
-			this.speedAccelerate += 10;
+			if(this.size % 10 == 0 && SNAKE_SPEED - this.speedAccelerate > 20) {
+				this.speedAccelerate -= 10;
+			}
 			this.generateFood();
 		}
 		this.gamePane[this.position.x][this.position.y] = this.size;

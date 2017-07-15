@@ -1,0 +1,93 @@
+﻿* {
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-family: 'Press Start 2P', cursive;
+}
+
+html, body {
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: darkgray;
+}
+
+div#container {
+    margin-bottom: 10vh;
+}
+
+td {
+    height: 3vmin;
+    width: 3vmin;
+    background-color: green;
+}
+
+div#score {
+    position: absolute;
+    font-size: 2vh;
+    top: 2vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.snake {
+    background-color: black;
+}
+
+.food {
+    background-color: lightgreen;
+}
+
+.eaten:after {
+    position: fixed;
+    content: "\00a0";
+    font-size: 14px;
+    transform: translate(-2px, -7px);
+    background-color: black;
+}
+
+#keys {
+    display: none;
+}
+
+#keys tr td {
+        background-color: white;
+        height: 20vmin;
+        width: 20vmin;
+        font-size: 10vmin;
+        text-align: center;
+}
+
+
+div#reset {
+    position: absolute;
+    font-size: 2vh;
+    bottom: 2vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+
+@media (max-width:800px) and (orientation: landscape) { 
+    body {
+        display: flex;
+        flex-direction: row;
+    }
+
+    div#container {
+        margin-bottom: 0vh;
+        margin-right: 2vw;
+    }
+
+    #keys {
+        display: initial;
+    }
+ }  
