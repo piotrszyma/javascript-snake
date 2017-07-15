@@ -130,6 +130,7 @@ class Snake {
 		if(this.gamePane[this.position.x][this.position.y] > -1) {
 			//END GAME - snake ate himself
 			alert("Snake ate himself. You lost");
+			resetGame();
 			return;
 		}
 
