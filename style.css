@@ -45,18 +45,18 @@ div#score {
     background-color: lightgreen;
 }
 
-.eaten:after {
+/* .eaten:after {
     position: fixed;
     content: "\00a0";
     font-size: 14px;
     transform: translate(-2px, -7px);
     background-color: black;
-}
+} */
 
 #keys tr td {
         background-color: white;
-        height: 15vmin;
-        width: 15vmin;
+        height: 20vmin;
+        width: 20vmin;
         font-size: 10vmin;
         text-align: center;
 }
