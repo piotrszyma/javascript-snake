@@ -31,8 +31,8 @@ td {
 
 div#score {
     position: absolute;
-    font-size: 2vh;
-    top: 2vh;
+    font-size: 2vmin;
+    top: 2vmin;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -76,7 +76,7 @@ div#reset {
 
 
 
-@media (orientation: landscape) { 
+@media screen and (orientation: landscape) { 
     body {
         display: flex;
         flex-direction: row;
