@@ -24,15 +24,15 @@ div#container {
 }
 
 td {
-    height: 3vmin;
-    width: 3vmin;
+    height: 2.5vmin;
+    width: 2.5vmin;
     background-color: green;
 }
 
 div#score {
     position: absolute;
-    font-size: 2vmin;
-    top: 2vmin;
+    font-size: 3vmax;
+    top: 3vmax;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -55,8 +55,8 @@ div#score {
 
 #keys tr td {
         background-color: white;
-        height: 20vmin;
-        width: 20vmin;
+        height: 15vmin;
+        width: 15vmin;
         font-size: 10vmin;
         text-align: center;
 }
@@ -64,8 +64,8 @@ div#score {
 
 div#reset {
     position: absolute;
-    font-size: 2vh;
-    bottom: 2vh;
+    font-size: 3vmax;
+    bottom: 3vmax;
     left: 50%;
     transform: translateX(-50%);
 }
