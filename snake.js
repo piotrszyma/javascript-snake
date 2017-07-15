@@ -1,9 +1,13 @@
 ﻿'use strict';
 
-const	PANE_HEIGHT = 20,
+var		PANE_HEIGHT = 20,
 		PANE_WIDTH = 30,
 		SNAKE_SPEED = 220,
-		DIRECTIONS = {
+		INIT_X = 4,
+		INIT_Y = 4,
+		scoreHTML = document.getElementById("score");
+
+const	DIRECTIONS = {
 			UP: 0,
 			RIGHT: 1,
 			DOWN: 2,
@@ -16,7 +20,6 @@ const	PANE_HEIGHT = 20,
 			40: DIRECTIONS.DOWN
 		}
 
-var scoreHTML = document.getElementById("score");
 
 class Snake {
 	constructor(initX, initY) {
@@ -27,7 +30,6 @@ class Snake {
 				this.gamePane[x][y] = -1;
 			}
 		}
-
 		this.size = 1;
 		this.position = {x: initX, y: initY};
 		this.lastPosition = {x: initX, y: initY}
@@ -117,7 +119,7 @@ class Snake {
 		if(this.gamePane[this.position.x][this.position.y] > -1) {
 			//END GAME - snake ate himself
 			alert("Snake ate himself.\nYou lost\nYour score: " + (this.size - 1) * 100);
-			resetGame();
+			this.resetGame();
 			return;
 		}
 
@@ -197,15 +199,10 @@ class Snake {
 
 	}
 
-	endGame() {
+	resetGame() {
 		this.paneContainer.innerHTML = "";
 		scoreHTML.innerHTML = "0";
-		
-	}
-
-	resetGame() {
-		this.endGame();
-		s = new Snake(4, 4);
+		s = new Snake(INIT_X, INIT_Y);
 	}
 
 }
@@ -243,5 +240,5 @@ function removeClass(classname, element ) {
 
 
 
-var s = new Snake(4, 4);
+var s = new Snake(INIT_X, INIT_Y);
 document.onkeydown = handleClick;
