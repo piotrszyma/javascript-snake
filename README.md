@@ -1,1 +1,3 @@
-# piotrszyma.github.io
+# Snake
+
+Simple Snake Game made using JavaScript.
